@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="org.tukaani:xz:1.8" type="repository">
+    <properties maven-id="org.tukaani:xz:1.8" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/tukaani/xz/1.8/xz-1.8.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

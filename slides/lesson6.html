@@ -1,0 +1,336 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>PCD 2018 - L18</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+			  <section data-markdown data-separator="^\r?\n---\r?\n$" data-separator-vertical="^\n\n"
+			           data-background-image="imgs/l6/mqjx_8eastm-ishan-seefromthesky.jpg" data-state='blackout'/>
+	        <textarea data-template>
+
+# PCD2018 - 18
+
+---
+
+# Programmazione Distribuita
+
+
+Teoria e tecniche per la gestione di più processi su macchine diverse che operano in modo coordinato allo svolgimento di un unico compito.
+
+
+Un insieme di macchine che esegue un algoritmo distribuito è detto un sistema distribuito. In modo più preciso:
+
+
+"A distributed system is one in which the failure of a computer you didn't even know existed can render your own computer unusable" - Leslie Lamport, 2013 Turing Award <!-- .element: style="float: right; width: 50%" -->
+
+![ReactiveX](imgs/l6/Lamport_1s.jpg) <!-- .element: style="width: 40%" -->
+
+Note: Leslie Lamport, 2013 Turing Award https://amturing.acm.org/photo/lamport_1205376.cfm
+
+
+Abbiamo visto quanto sia complesso gestire più thread concorrenti all'interno di uno stesso processo. Perché andare verso difficoltà ancora maggiori e gestire processi coordinati su più macchine?
+
+---
+
+# Motivazioni e caratteristiche
+
+
+Le principali motivazioni che storicamente hanno portato ad ideare la distribuzione di un algoritmo su più nodi di calcolo sono:
+
+
+## Affidabilità
+
+Le attività possono proseguire sui nodi che sono (ancora) in linea, rispetto a quelli che sono fermi o in errore.
+
+Note: ARPANET nasce per questo preciso scopo
+
+
+## Suddivisione del carico
+
+Una mole di lavoro più grande delle capacità di una sola macchina può essere suddivisa fra più nodi per essere eseguita in modo concorrente.
+
+Note: sempre che il lavoro lo consenta
+
+
+## Distribuzione
+
+Gli utenti di più macchine possono accedere ai risultati del lavoro da uno qualsiasi dei nodi.
+
+Note: al tempo in cui le architetture erano prevalentemente mainframe/terminale, questo era un argomento importante.
+
+
+Le caratteristiche di un Algoritmo distribuito sono le seguenti:
+
+
+## Concorrenza dei componenti
+
+I vari nodi di esecuzione operano contemporaneamente.
+
+
+## Mancanza di un _global clock_
+
+L'ordine temporale degli eventi non è strettamente condiviso, e se importante deve essere imposto con opportuni mezzi.
+
+
+## Fallimenti indipendenti
+
+I nodi possono guastarsi o fallire indipendentemente uno dall'altro.
+
+Note: individuare un fallimento è un problema a sè stante.
+
+
+I nodi comunicano fra loro scambiandosi messaggi, in quanto non condividono altra risorsa che il collegamento alla rete.
+
+Le principali astrazioni disponibili riguardano quindi l'invio di un messaggio e l'attesa della ricezione di un messaggio.
+
+Note: con tutte le problematiche del caso: indirizzamento, concorrenza dell'attesa, identificazione della controparte, ecc.
+
+---
+
+# Messaggi e Metodi
+
+
+Fin dai primi tempi si è cercato di riportare il modello a messaggi a qualcosa di più simile ad una chiamata locale mascherando la distinzione fisica fra le due macchine chiamante e chiamato.
+
+
+Il termine RPC - _Remote Procedure Call_ indica un sistema per rendere trasparente la localizzazione del codice chiamato, rendendolo il più possibile simile ad una chiamata locale.
+
+L'adattamento locale/remoto viene implementato da un componente detto _stub_.
+
+
+Una RPC comporta i seguenti passi:
+
+* Il client chiama lo _stub_ locale
+* Lo _stub_ mette i parametri in un messaggio (_marshalling_)
+* Lo _stub_ invia il messaggio al nodo remoto
+
+
+* Sul nodo remoto, un _server stub_ attende il messaggio
+* Il _server stub_ estrae i parametri (_unmarshalling_)
+* Il _server stub_ chiama la procedura locale
+
+La risposta segue il percorso inverso.
+
+
+Nei linguaggi Object-Oriented questo meccanismo prende il nome di RMI - _Remote Method Invocation_ in quanto deve includere anche l'indirizzamento dell'oggetto destinatario della chiamata.
+
+Il componente server viene chiamato _Object Broker_
+
+
+All'inizio degli anni '90 diventa popolare una tecnologia di RMI detta **CORBA**: _Common Object Request Brocker Architecture_ che propone uno standard.
+
+CORBA descrive gli oggetti tramite un linguaggio: IDL - _Interface Definition Language_ che gli consente di far interagire tecnologie differenti.
+
+
+Java, nascendo come linguaggio per sistemi embedded, implementa fin dalle prime versioni un sistema di RMI e molto presto anche  la specifica CORBA per poter partecipare a sistemi distribuiti costruiti con questa tecnologia.
+
+
+Una chiamata RMI comporta i seguenti passi:
+
+
+* Il client chiama lo _stub_ locale
+* Lo _stub_ prepara i parametri in un messaggio
+* Lo _stub_ invia il messaggio. Il client è bloccato.
+* Il server riceve il messaggio
+* Il server controlla il messaggio e cerca l'oggetto chiamato
+* Il server recupera i parametri e chiama il metodo destinatario
+
+
+* L'oggetto esegue il metodo e ritorna il risultato
+* Il server prepara il risultato in un messaggio
+* Il server invia il messaggio allo _stub_
+* Lo _stub_ riceve il messaggio di ritorno
+* Lo _stub_ recupera il risultato dal messaggio
+* Lo _stub_ ritorna al client il risultato
+
+
+Domanda:
+
+Quante cose possono andare male in questo (lungo) processo?
+
+
+* cosa succede se uno dei messaggi non viene recapitato?
+* cosa succede se il client ed il server hanno versioni diverse degli oggetti scambiati?
+
+
+* cosa succede se il client ed il server sono su reti che non permettono l'uno di indirizzare l'altro?
+* cosa succede se durante la chiamata il client od il server falliscono o diventano non più disponibili?
+
+
+* come è possibile nascondere tutta questa complessità e renderla indistinguibile da una chiamata locale?
+
+
+Nelle reti e negli ambienti di esecuzione moderni tutte queste problematiche sono comuni:
+
+* le reti possono (per es. wireless) possono essere inaffidabili
+* può essere difficile per sistemi di decine o centinaia di nodi essere tutti aggiornati allo stessa versione del software
+
+
+* firewall, reti temporanee e wireless rendono impossibile indirizzare liberamente un singolo terminale
+* i nodi entrano ed escono dalla rete con grande facilità; inoltre, più sono numerosi più è facile che qualcuno di essi fallisca
+
+
+L'evoluzione del panorama delle reti ha reso poco pratico l'uso di tecnologie RMI, che sopravvivono solo in ambiti controllati (server/server), ed in forme molto diverse da quelle originarie.
+
+Note: per esempio Google gRPC http://www.grpc.io/, Apache Thrift https://thrift.apache.org/, Apache Avro https://avro.apache.org/
+
+
+Non si cerca più di nascondere la complessità della chiamata remota, ma di rendere meno impegnativo possibile partecipare ad un servizio distribuito.
+
+
+In Java 9, il modulo `java.corba` è stato ufficialmente deprecato, e rimosso in Java 11. Non è più presente nel classpath di default, e deve essere esplicitamente installato ed attivato.
+
+Note: RMI è ancora presente ma poco usato nella sua forma più base.
+
+---
+
+# Serializzazione
+
+
+Un passo fondamentale evidenziato dai sistemi di RMI, ma che è necessario in generale, è la cosiddetta _serializzazione_, ovvero il metodo con cui un oggetto viene predisposto per la trasmissione in un messaggio.
+
+
+Si dice _serializzare_ usare un meccanismo di codifica che prende direttamente l'oggetto e lo traduce in messaggio per eseguire il passo di _marshalling_.
+
+Al contrario, _deserializzare_ corrisponde al passo di _unmarshalling_.
+
+Note: l'enfasi è sul prendere l'oggetto come un tutt'uno e comportarsi in modo il più automatico possibile, in contrasto per es. a collocare i campi dell'oggetto in una struttura predefinita e non dipendente da quest'ultimo.
+
+
+![Serialization](imgs/l6/serialization.png)
+
+
+Si tratta di un problema ingannevolmente semplice: in realtà è molto complesso e ricco di implicazioni, dalla storia, all'efficienza, alla sicurezza.
+
+Note: confrontare con la Legge di Postel: "Be conservative in what you do, be liberal in what you accept from others" https://tools.ietf.org/html/rfc761#section-2.10
+
+
+Java ha fin dalla versione 1.1 un meccanismo di serializzazione nativo, tramite l'interfaccia `java.io.Serializable`.
+
+Note: si tratta di un'interfaccia senza metodi.
+
+
+Tuttavia, la sua natura di "marker interface" e le cautele necessarie ad usarla fanno capire quanto il suo uso non sia semplice.
+
+Note: sono imposte una serie di condizioni (la presenza di un UUID con determinate caratteristiche, restrizioni sui tipi dei campi ecc.) unicamente come "convenzioni", non controllabili dal compilatore.
+
+
+Le problematiche che la serializzazione deve affrontare sono:
+* gestire il cambiamento strutturale delle classi
+* serializzare grafi di oggetti
+
+
+* indicare oggetti che non possono/non devono essere serializzati
+* assicurare l'integrità e l'affidabilità dei dati serializzati
+* rendere _marshalling_/_unmarshalling_ efficienti in tempo e spazio
+
+
+Per tutte queste motivazioni l'uso della serializzazione nativa di Java è sconsigliato nella pratica normale.
+
+Non solo, è particolarmente sconsigliato per problematiche di sicurezza.
+
+Note: Esistono alternative che risolvono molte delle problematiche illustrate.
+
+
+Inoltre, per il modo in cui funzionano reti e sistemi distribuiti oggi, sono diventati praticabili/preferibili in molte situazioni protocolli testuali trasportati da HTTP e umanamente leggibili.
+
+Note: sempre cfr. Postel. La differenza è alla base della distinzione fra Marshalling e Parsing: una serializzazione usa la prima, un protocollo usa il secondo.
+
+
+I protocolli binari sono riservati ad ambienti controllati e dove ci sono particolari esigenze di efficienza.
+
+
+Per questo motivo, non parleremo di serializzazione e useremo nei nostri esempi protocolli testuali semplici.
+
+---
+
+# The Good Parts
+
+
+Con queste premesse, quali sono le parti più importanti della libreria standard da usare per far comunicare fra loro nodi distribuiti?
+
+
+Le classiche primitive del modello TCP/IP:
+* Sockets (Connessioni TCP)
+* Datagrams (Pacchetti UDP)
+
+
+L'astrazione `Channel` per unificare le operazioni di I/O su canali differenti (file, rete, hardware).
+
+
+Le implementazioni asincrone di `java.nio` per un'esecuzione più efficiente sfruttando a fondo le funzionalità fornite dal Sistema Operativo ospite.
+
+
+La classe URL ed i suoi dintorni per fare (semplici) richieste HTTP.
+
+
+Su queste basi, l'ecosistema Java ha a disposizione una grande scelta di robuste ed efficaci librerie per la realizzazione di topologie anche molto complesse.
+
+
+**OkHttp**: semplice gestione di chiamate HTTP<br/>
+**Jackson**: un/marshalling di dati JSON<br/>
+**Netty**: I/O asincrono ad eventi<br/>
+**Thrift**: RPC scalabile, efficiente, sicuro<br/>
+
+Note: Thrift viene da una donazione di Facebook.
+
+
+Lo standard JEE introduce un framework per lo sviluppo di applicazioni client/server e web basato su astrazioni di livello più alto.
+
+Note: dove cioè il nostro codice non deve preoccuparsi della connettività
+
+
+In generale, Java ha una posizione di primo piano nell'attuale mercato dello sviluppo di applicazioni di rete e web, con un ricchissimo panorama di soluzioni disponibili.
+
+Note: Praticamente ogni innovazione nel campo viene quasi immediatamente portata in Java, se non è sviluppata direttamente sulla JVM.
+
+
+Un interessante punto di partenza per esplorare questo panorama sono i benchmark TechEnpower:
+
+https://www.techempower.com/benchmarks/
+
+</textarea>
+</section>
+        </section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+			  slideNumber: 'c/t',
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>

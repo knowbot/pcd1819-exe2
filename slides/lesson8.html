@@ -1,0 +1,527 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>PCD 2018 - L20</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+			  <section data-markdown data-separator="^\r?\n---\r?\n$" data-separator-vertical="^\n\n"
+			           data-background-image="imgs/l8/44t1aznimie-tobias-van-schneider.jpg" data-state='blackout'/>
+	        <textarea data-template>
+
+# PCD2018 - 20
+
+---
+
+# Esercizio 2
+
+
+# Diffie–Hellman key exchange
+
+
+- Alice e Bob pubblicano _p_, _g_
+- Alice sceglie _a_, ed invia a Bob _A_ = _g^a mod p_
+- Bob sceglie _b_, ed invia ad Alice _B_ = _g^b mod p_
+- Ora condividono _s_ = _B^a mod p_ = _A^b mod p_
+
+Note: Per essere efficace, _p_ è un numero primo. _g_ deve essere una _radice primitiva_ di _p_. Dettagli su https://en.wikipedia.org/wiki/Diffie%E2%80%93Hellman_key_exchange.
+
+
+Quindi, durante uno scambio fra Alice e Bob sono pubblici:
+
+_p_, _g_, _A_, _B_
+
+Mentre sono di difficile calcolo, e segreti:
+
+_a_, _b_, _s_
+
+
+Scopo dell'esercizio è impersonare un'agente malevolo, Charlie, che intende recuperare i segreti di Alice e Bob con un attacco di forza bruta.
+
+Note: intende cioè provare tutte le combinazioni di _a_ e _b_ finché non trova quelle che verificano l'equazione di _s_, in modo da ottenere le chiavi private di Alice e Bob.
+
+
+Ai fini di completare l'esercizio prima della morte termica dell'universo, i numeri (e quindi la sicurezza) dello scambio sono molto, molto bassi.
+
+Note: una chiave di livello normale ha solitamente almeno 1024 bit. Il nostro esempio ne ha 24.
+
+
+La classe da realizzare deve rendere verde un test che, dati i seguenti parametri:
+
+`p=128504093, g=10009`
+
+`A=69148740, B=67540095`
+
+verifica che tutte le coppie prodotte dalla funzione da completare soddisfino la condizione di calcolo di _s_.
+
+Note: dato il basso numero di bit, sono possibili collisioni; la soluzione è molto probabilmente non unica. Ma questo è un problema di Charlie.
+
+
+Charlie è inoltre a conoscenza che, imprudentemente, Alice e Bob hanno scelto:
+
+`0 <= a <= 65536`
+
+`0 <= b <= 65536`
+
+Le coppie da verificare quindi sono solo 2^32.
+
+Note: c'è un modo abbastanza veloce di controllare tutte le coppie, che non dovrebbe essere difficile da individuare.
+
+
+## Obiettivo dell'esercizio:
+
+organizzare il lavoro di attraversamento dello spazio di ricerca in modo da utilizzare più thread contemporaneamente, e occupare tutti i core disponibili.
+
+
+La consegna dell'esercizio consiste in una mail a `michele.mauro@unipd.it` con:
+
+* oggetto: [pcd18] [123456] Esercizio 2
+* allegato: DiffieHellman_123456.java
+* testo: spiegazione dell'organizzazione del codice e della suddivisione del lavoro scelta
+
+Va sostituito `123456` con la propria matricola.
+
+Note: la mancanza o l'inesattezza di uno di questi elementi può penalizzare o invalidare la consegna.
+
+
+La parte più importante è l'organizzazione del codice che suddivide il lavoro.
+
+Criteri di valutazione saranno:
+
+* facilità di lettura
+* chiarezza della struttura
+* scelta delle primitive corrette
+
+Note: la correttezza del risultato è secondaria. Copiare è inutile, anche perché abbiamo notato che tendenzialmente, le soluzioni più copiate sono spesso quelle sbagliate.
+
+
+`pcd2018.exe2.DiffieHellman`
+```java
+public class DiffieHellman {
+
+  /**
+   * Limite massimo dei valori segreti da cercare
+   */
+  private static final int LIMIT = 65536;
+
+  public List<Integer> crack(long publicA, long publicB) {
+    List<Integer> res = new ArrayList<Integer>();
+
+    return res;
+  }
+}
+```
+
+---
+
+# Channels
+
+
+Per completare la panoramica sui metodi di gestione dei `Socket` ci manca un'astrazione che ci permetta di ascoltare e reagire a più richieste di connessione.
+
+
+Nella revisione dei metodi di I/O introdotta con il package `java.nio` in Java 1.4 nel 2002, viene introdotto un'intero albero di tipi dedicati alla gestione della comunicazione nel modo più generico.
+
+
+```java
+/**
+ * A nexus for I/O operations.
+ *
+ **/
+public interface Channel extends Closeable
+```
+
+
+Un `Channel` rappresenta un canale di I/O, che può essere aperto o chiuso.
+
+
+```java
+/**
+ * A channel to a network socket.
+ *
+ **/
+public interface NetworkChannel extends Closeable
+```
+
+
+Un `NetworkChannel` rappresenta una comunicazione su di una rete. Può:
+
+* esssere legato (con l'operazione `bind`) ad un'indirizzo
+* dichiarare le opzioni che supporta.
+
+
+```java
+/**
+ * An asynchronous channel for stream-oriented
+ * listening sockets.
+ *
+ **/
+public abstract class AsynchronousServerSocketChannel
+  implements AsynchronousChannel, NetworkChannel
+```
+
+
+Un `AsynchronousServerSocketChannel` è un canale asincrono basato su di una server socket.
+
+Ci permette, in modo asincrono, di accettare connessioni e gestirle.
+
+
+```java
+/**
+ * A handler for consuming the result of an asynchronous
+ * I/O operation.
+ *
+ * @param V The result type of the I/O operation
+ * @param A The type of the object attached to the
+ *   I/O operation
+ **/
+interface CompletionHandler<V,A>
+```
+
+Note: abbiamo bisogno di specificare anche questa interfaccia. Essendo la modalità asincrona, questa interfaccia ci permette di indicare al sistema l'azione da effettuare al completamento della successiva interazione.
+
+
+`CompletionHandler` è l'interfaccia che deve implementare un oggetto che gestisce la ricezione di un'operazione di I/O asincrona.
+
+
+```java
+/**
+ * Invoked when an operation has completed.
+ *
+ * @param result The result of the I/O operation
+ * @param attachment The type of the object attached to
+ *   the I/O operation when it was initiated
+ **/
+void completed(V result, A attachment)
+```
+
+
+Il compito del metodo `completed` è gestire l'interazione relativa ai dati ricevuti, ed eventualmente predisporre l'operazione successiva.
+
+
+```java
+/**
+ * Invoked when an operation fails.
+ *
+ * @param exc The exception to indicate why the I/O
+ *   operation failed
+ * @param attachment The type of the object attached to
+ *   the I/O operation when it was initiated
+ **/
+void failed(Throwable exc, A attachment)
+```
+
+
+Il compito del metodo `failed` è, ovviamente, gestire il caso in cui un'interazione ha incontrato una eccezione.
+
+
+Implementando un `CompletionHandler` possiamo esprimere il comportamento del server alla prossima interazione, in maniera asincrona.
+
+Note: asincrona nel senso non sincronizzata con il nostro codice. Indichiamo al sistema quale codice eseguire quando si completa un certo evento.
+
+
+Il parametro generico `attachment` ci permette di far circolare le informazioni di contesto riguardo allo stato della conversazione.
+
+
+I vari handler potrebbero essere chiamati da `Thread` diversi, in momenti imprevedibili; da qui la necessità di gestire esplicitamente il passaggio del contesto.
+
+Note: perché le varie linee di esecuzione non avrebbero altrimenti modo di scambiarsi dati correttamente.
+
+
+La gestione delle operazioni di I/O richiede quindi di specificare sempre l'attachment da far circolare ed il `CompletitionHandler` che gestisce il completamento.
+
+
+```java
+/**
+ * (from AsynchronousServerSocketChannel)
+ * Accepts a connection.
+ *
+ * @param A The type of the attachment
+ * @param attachment The object to attach to the I/O
+ *   operation; can be null
+ * @param handler The handler for consuming the result
+ **/
+public abstract <A> void accept(A attachment,
+  CompletionHandler<AsynchronousSocketChannel,? super A>
+  handler)
+```
+
+
+```java
+/**
+ * (from AsynchronousSocketChannel)
+ * Reads a sequence of bytes from this channel into the given
+ * buffer.
+ *
+ * @param A The type of the attachment
+ * @param dst The buffer into which bytes are to be
+ *   transferred
+ * @param attachment The object to attach to the I/O op.
+ * @param handler The completion handler
+ **/
+public final <A> void read(ByteBuffer dst, A attachment,
+  CompletionHandler<Integer,? super A> handler)
+```
+
+
+```java
+/**
+ * (from AsynchronousSocketChannel)
+ * Writes a sequence of bytes to this channel from the given
+ * buffer.
+ *
+ * @param A The type of the attachment
+ * @param src The buffer from which bytes are to be
+ *   retrieved
+ * @param attachment The object to attach to the I/O op.
+ * @param handler The completion handler object
+ **/
+public final <A> void write(ByteBuffer src, A attachment,
+  CompletionHandler<Integer,? super A> handler)
+```
+
+
+Questo richiede di riorganizzare (pesantemente) il nostro codice, ma ci permette di gestire molte più connessioni.
+
+
+Un'alternativa all'uso di un `CompletionHandler` è data dalla versione dei metodi che ritorna un `Future`.
+
+
+```java
+/**
+ * (from AsynchronousServerSocketChannel)
+ * Accepts a connection.
+ *
+ * @return a Future object representing the pending result
+ **/
+public abstract Future<AsynchronousSocketChannel>
+  accept()
+```
+
+
+```java
+/**
+ * (from AsynchronousSocketChannel)
+ * Reads a sequence of bytes from this channel into the given
+ * buffer.
+ *
+ * @param dst The buffer into which bytes are to be
+ *   transferred
+ * @return A Future representing the result of the operation
+ **/
+public abstract Future<Integer> read(ByteBuffer dst)
+```
+
+
+```java
+/**
+ * (from AsynchronousSocketChannel)
+ * Writes a sequence of bytes to this channel from the given
+ * buffer.
+ *
+ * @param src The buffer from which bytes are to be
+ *   retrieved
+ * @return A Future representing the result of the operation
+ **/
+public abstract Future<Integer> write(ByteBuffer src)
+```
+
+
+La struttura a cui questo approccio porta è duale alla precedente: il contesto è dato dal blocco in cui viene eseguito gestito il `Future`.
+
+
+La principale differenza è che in questo caso, se il blocco di codice è unico per tutta la conversazione, il thread che la gestisce è unico e rimane allocato per l'intera durata della conversazione.
+
+---
+
+# Esempio
+
+
+`pcd2018.channels.Server`
+```java
+ExecutorService pool = Executors.newFixedThreadPool(4);
+AsynchronousChannelGroup group=
+  AsynchronousChannelGroup.withThreadPool(pool);
+AsynchronousServerSocketChannel serverSocket =
+  AsynchronousServerSocketChannel.open()
+  .bind(new InetSocketAddress("127.0.0.1", GAME_PORT), 16);
+
+pool.submit(() -> {
+  serverSocket.accept(
+    new GameAttachment(1, new Game(), serverSocket, group),
+    new AcceptPlayerO());
+});
+```
+
+Note: Il main prepara le risorse e istanzia l'attachment vuoto per iniziare alla ricezione della prima connessione. La prossima operazione è `AcceptPlayerO`. Notate che possiamo scegliere noi il tipo di `ExecutorService` che il sistema deve usare.
+
+
+`pcd2018.channels.AcceptPlayerO`
+```java
+@Override
+public void completed(AsynchronousSocketChannel result,
+  GameAttachment attachment) {
+  System.out.println(Thread.currentThread().getName() +
+    " : game " + attachment.id + " connected player O");
+  attachment.server.accept(attachment.playerO(result),
+    new WriteFirstStatus());
+}
+```
+
+Note: `AcceptPlayerO` viene richiamata alla ricezione della prima connessione. Annotiamo il socket collegato nell'attachment, e programmiamo per la prossima azione `WriteFirstStatus`
+
+
+`pcd2018.channels.WriteFirstStatus`
+```java
+public void completed(AsynchronousSocketChannel result,
+  GameAttachment attachment) {
+
+  attachment = attachment.playerX(result);
+  GameResult status = attachment.game.status();
+  AsynchronousSocketChannel socket =
+    attachment.players[status.next];
+  byte[] bytes = (status.toString() + "\n").getBytes();
+  socket.write(wrap(bytes), attachment, new ReadPlayer());
+```
+
+Note: Annotiamo la seconda connessione, inviamo lo stato sulla prima e leggiamo la mossa del primo giocatore.
+
+
+```java
+  // more games?
+  if (attachment.id <= 5) {
+    attachment.server.accept(new GameAttachment(attachment.id + 1,
+      new Game(), attachment.server), new AcceptPlayerO());
+  } else {
+    attachment.group.shutdown();
+  }
+}
+```
+
+Note: se abbiamo raggiunto il numero desiderato di partite, segnaliamo al gruppo del canale di cominciare a considerare la chiusura del sistema. Altrimenti predisponiamo, alla ricezione di una nuova connessione, l'apertura di una nuova partita.
+
+
+`pcd2018.channels.ReadPlayer`
+```java
+public void completed(Integer result,
+    GameAttachment attachment) {
+  GameResult status = attachment.game.status();
+  AsynchronousSocketChannel socket =
+    attachment.players[status.next];
+  attachment.readBuf.clear();
+  socket.read(attachment.readBuf, attachment,
+    new WriteStatus());
+}
+```
+
+Note: ci mettiamo in attesa della mossa dalla connessione del giocatore che deve muovere, e programmiamo come risposta l'invio dello stato all'altro giocatore.
+
+
+`pcd2018.channels.WriteStatus`
+```java
+String input = new String(attachment.readBuf.array(),
+  0, result).trim();
+Integer move = Integer.parseInt(input);
+GameResult initial = attachment.game.status();
+GameResult status =
+  attachment.game.move(initial.next, move);
+```
+
+Note: leggiamo i dati di input e calcoliamo lo stato dopo la mossa ricevuta.
+
+
+```java
+if (!status.end) {
+  // the game goes on
+  AsynchronousSocketChannel socket =
+    attachment.players[status.next];
+  byte[] bytes = (status.toString() + "\n").getBytes();
+  socket.write(wrap(bytes), attachment, new ReadPlayer());
+```
+
+Note: se la partita non è terminata ancora terminata, prepariamo il messaggio per il prossimo giocatore, e impostiamo la prossima azione su `ReadPlayer`.
+
+
+```java
+} else if (status.valid) {
+  attachment.players[status.next].write(
+    wrap("You won.".getBytes()), attachment,
+    new CloseSocket(status.next));
+  int loser = (status.next + 1) & 0x1;
+  attachment.players[loser].write(
+    wrap("You lost.".getBytes()), attachment,
+    new CloseSocket(loser));
+```
+
+Note: oppure, se abbiamo un vincitore, predisponiamo entrambi i messaggi (il sistema li manderà quando avrà un thread a disposizione) e programmiamo la chiusura dei socket una volta completato l'invio
+
+
+```java
+} else {
+  // we have a tie
+  attachment.players[0].write(
+    wrap("Tied.".getBytes()), attachment,
+    new CloseSocket(0));
+  attachment.players[1].write(
+    wrap("Tied.".getBytes()), attachment,
+    new CloseSocket(1));
+}
+```
+
+Note: in modo simile, se abbiamo una parità.
+
+
+
+`pcd2018.channels.CloseSocket`
+```
+try {
+  attachment.players[idx].close();
+} catch (IOException e) {
+  e.printStackTrace();
+}
+```
+
+</textarea>
+</section>
+        </section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+			  slideNumber: 'c/t',
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>

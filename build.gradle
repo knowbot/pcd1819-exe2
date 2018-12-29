@@ -1,0 +1,303 @@
+plugins { 
+  id 'checkstyle'
+  id 'java'
+  id 'eclipse'
+  id 'idea'
+  id 'maven-publish'
+  id 'pmd'
+}
+
+group 'pcd2018'
+version '0.7.0'
+
+sourceCompatibility = '1.8'
+targetCompatibility = '1.8'
+
+description = """PCD 2018""" 
+
+// disable annotation processors warning
+compileJava {
+  options.compilerArgs += '-proc:none'
+}
+
+// Enable JUnit 5 support
+test {
+  useJUnitPlatform()
+}
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  compile 'io.vavr:vavr:0.9.2'
+  compile 'org.tukaani:xz:1.6'
+  testCompile('org.junit.jupiter:junit-jupiter-api:5.3.1')
+  testCompile('org.junit.platform:junit-platform-console:1.3.1')
+  testCompile('org.junit.jupiter:junit-jupiter-params:5.3.1')
+  testRuntime('org.junit.jupiter:junit-jupiter-engine:5.3.1')
+  testCompile('org.junit.platform:junit-platform-launcher:1.2.0')  
+}
+
+checkstyle {
+  toolVersion = "8.14" // 6.19
+}
+
+// Lesson 13
+
+task singleThread(type: JavaExec) {
+  classpath = sourceSets.main.runtimeClasspath
+  main = 'pcd2018.threads.SingleThread'
+}
+
+task manyThreads(type: JavaExec) {
+  classpath = sourceSets.main.runtimeClasspath
+  main = 'pcd2018.threads.ManyThreads'
+}
+
+// Lesson 14
+
+task threadObserver(type: JavaExec) {
+  classpath = sourceSets.main.runtimeClasspath
+  main = 'pcd2018.threads.ThreadObserver'
+}
+
+task threadInterrupter(type: JavaExec) {
+  classpath = sourceSets.main.runtimeClasspath
+  main = 'pcd2018.threads.ThreadInterrupter'
+}
+
+task rethrowingThread(type: JavaExec) {
+  classpath = sourceSets.main.runtimeClasspath
+  main = 'pcd2018.threads.RethrowingThread'
+}
+
+task fixedThreadPool(type: JavaExec) {
+  classpath = sourceSets.main.runtimeClasspath
+  main = 'pcd2018.threads.FixedThreadPool'
+}
+
+task singleThreadPool(type: JavaExec) {
+  classpath = sourceSets.main.runtimeClasspath
+  main = 'pcd2018.threads.SingleThreadPool'
+}
+
+task scheduledFutures(type: JavaExec) {
+  classpath = sourceSets.main.runtimeClasspath
+  main = 'pcd2018.threads.ScheduledFutures'
+}
+
+task allFutures(type: JavaExec) {
+  classpath = sourceSets.main.runtimeClasspath
+  main = 'pcd2018.threads.AllFutures'
+}
+
+task anyFutures(type: JavaExec) {
+  classpath = sourceSets.main.runtimeClasspath
+  main = 'pcd2018.threads.AnyFutures'
+}
+
+// Lesson 15
+
+task reducePerf(type: JavaExec) {
+  classpath = sourceSets.main.runtimeClasspath
+  main = 'pcd2018.safe.ReducePerf'
+}
+
+task printerOperator(type: JavaExec) {
+  classpath = sourceSets.main.runtimeClasspath
+  main = 'pcd2018.safe.PrinterOperator'
+}
+
+task localVar(type: JavaExec) {
+  classpath = sourceSets.main.runtimeClasspath
+  main = 'pcd2018.safe.LocalMain'
+}
+
+// Lab 1
+
+task step1(type: Test) {
+  useJUnitPlatform {
+    includeTags 'Step-1'
+  }
+}
+
+task step2(type: Test) {
+  useJUnitPlatform {
+    includeTags 'Step-1'
+    includeTags 'Step-2'
+  }
+}
+
+task step3(type: Test) {
+  useJUnitPlatform {
+    includeTags 'Step-1'
+    includeTags 'Step-2'
+    includeTags 'Step-3'
+  }
+}
+
+task step4(type: Test) {
+  useJUnitPlatform {
+    includeTags 'Step-1'
+    includeTags 'Step-2'
+    includeTags 'Step-3'
+    includeTags 'Step-4'
+  }
+}
+
+task lab1(type: JavaExec) {
+  classpath = sourceSets.main.runtimeClasspath
+  main = 'pcd2018.lab1.Main'
+}
+
+// Lesson 16
+
+task runCounter(type: JavaExec) {
+  classpath = sourceSets.main.runtimeClasspath
+  main = 'pcd2018.sync.RunCounter'
+}
+
+task simpleFriends(type: JavaExec) {
+  classpath = sourceSets.main.runtimeClasspath
+  main = 'pcd2018.sync.SimpleFriends'
+}
+
+task namedWaiter(type: JavaExec) {
+  classpath = sourceSets.main.runtimeClasspath
+  main = 'pcd2018.sync.NamedWaiter'
+}
+
+task lockedFriends(type: JavaExec) {
+  classpath = sourceSets.main.runtimeClasspath
+  main = 'pcd2018.sync.LockedFriends'
+}
+
+task lockedPrinter(type: JavaExec) {
+  classpath = sourceSets.main.runtimeClasspath
+  main = 'pcd2018.sync.LockedPrinter'
+}
+
+task lockedBuffer(type: JavaExec) {
+  classpath = sourceSets.main.runtimeClasspath
+  main = 'pcd2018.sync.LockedBuffer'
+}  
+
+task semapohrePrinter(type: JavaExec) {
+  classpath = sourceSets.main.runtimeClasspath
+  main = 'pcd2018.sync.SemaphorePrinter'
+}  
+
+// Lesson 17
+
+task countStream(type: JavaExec) {
+  classpath = sourceSets.main.runtimeClasspath
+  main = 'pcd2018.streams.CountStream'
+}
+
+task orderedStream(type: JavaExec) {
+  classpath = sourceSets.main.runtimeClasspath
+  main = 'pcd2018.streams.OrderedStream'
+}
+
+task perfectStream(type: JavaExec) {
+  classpath = sourceSets.main.runtimeClasspath
+  main = 'pcd2018.streams.PerfectStream'
+}  
+
+task allPerfectStream(type: JavaExec) {
+  classpath = sourceSets.main.runtimeClasspath
+  main = 'pcd2018.streams.AllPerfectStream'
+}
+
+task streamReduce(type: JavaExec) {
+  classpath = sourceSets.main.runtimeClasspath
+  main = 'pcd2018.streams.StreamReduce'
+}
+
+task streamCollector(type: JavaExec) {
+  classpath = sourceSets.main.runtimeClasspath
+  main = 'pcd2018.streams.StreamCollector'
+}
+
+task stringCollector(type: JavaExec) {
+  classpath = sourceSets.main.runtimeClasspath
+  main = 'pcd2018.streams.StringCollector'
+}
+
+// Lesson 19
+
+task helloServer(type: JavaExec) {
+  classpath = sourceSets.main.runtimeClasspath
+  main = 'pcd2018.sockets.HelloServer'
+}
+
+// accepts an argument. Call with `gradle helloClient --args Name`
+task helloClient(type: JavaExec) {
+  classpath = sourceSets.main.runtimeClasspath
+  main = 'pcd2018.sockets.HelloClient'
+}
+
+task echoServer(type: JavaExec) {
+  classpath = sourceSets.main.runtimeClasspath
+  main = 'pcd2018.sockets.EchoServer'
+}
+
+// accepts an argument. Call with `gradle helloClient --args Name`
+task echoClient(type: JavaExec) {
+  classpath = sourceSets.main.runtimeClasspath
+  main = 'pcd2018.sockets.EchoClient'
+}
+
+task toeServer(type: JavaExec) {
+  classpath = sourceSets.main.runtimeClasspath
+  main = 'pcd2018.sockets.ToeServer'
+}
+
+task toeClient(type: JavaExec) {
+  classpath = sourceSets.main.runtimeClasspath
+  main = 'pcd2018.sockets.ToeClient'
+}
+
+// Lab 2
+
+task bowlingClient(type: JavaExec) {
+  classpath = sourceSets.main.runtimeClasspath
+  main = 'pcd2018.lab2.BowlingClient'
+}
+
+task bowlingStop(type: JavaExec) {
+  classpath = sourceSets.main.runtimeClasspath
+  main = 'pcd2018.lab2.BowlingStopper'
+}
+
+task bowlingServer(type: JavaExec) {
+  classpath = sourceSets.main.runtimeClasspath
+  main = 'pcd2018.lab2.BowlingServer'
+}
+
+task bowlingTest(type: Test) {
+  useJUnitPlatform {
+    includeTags 'Bowling'
+  }
+}
+
+// Lesson 20
+
+task channelClient(type: JavaExec) {
+  classpath = sourceSets.main.runtimeClasspath
+  main = 'pcd2018.channels.Client'
+}
+
+task channelServer(type: JavaExec) {
+  classpath = sourceSets.main.runtimeClasspath
+  main = 'pcd2018.channels.Server'
+}
+
+// Exercise 2
+
+task exe2(type: Test) {
+  useJUnitPlatform {
+    includeTags 'Exercise-2'
+  }
+}
