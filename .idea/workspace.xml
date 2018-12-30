@@ -2,139 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0844fc44-4634-42ac-bbaa-69d850376fc8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/knowbot.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/io_vavr_vavr_0_9_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/org_junit_jupiter_junit_jupiter_api_5_3_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/org_tukaani_xz_1_8.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/channels/AcceptPlayerO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/channels/Client.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/channels/CloseSocket.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/channels/GameAttachment.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/channels/ReadPlayer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/channels/Server.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/channels/Step.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/channels/WriteFirstStatus.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/channels/WriteStatus.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/exe2/DiffieHellman.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pcd2018/exe2/DiffieHellman.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/lab1/Decoder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/lab1/GameRecordToData.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/lab1/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/lab1/ScoreReader.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/lab1/Summarizer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/lab1/bowling/BowlingGame.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/lab1/bowling/GameRecord.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/lab1/data/DataRecord.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/lab1/data/FinalRecord.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/lab1/solution/GameRecordToData.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/lab1/solution/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/lab1/solution/ReadScore.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/lab1/solution/ScoreReader.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/lab1/solution/Summarizer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/lab1/solution/TransformScore.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/lab2/BowlingClient.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/lab2/BowlingServer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/lab2/bowling/Bowler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/lab2/bowling/BowlingScorer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/safe/Adder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/safe/AtomicAdder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/safe/ConcurrentPrinter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/safe/ListTraverser.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/safe/ListUpdater.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/safe/LocalMain.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/safe/LocalReader.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/safe/LocalVar.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/safe/PrintJob.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/safe/Printer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/safe/PrinterDriver.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/safe/PrinterOperator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/safe/ReducePerf.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/sockets/EchoClient.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/sockets/EchoServer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/sockets/Game.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/sockets/GameResult.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/sockets/HelloClient.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/sockets/HelloServer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/sockets/ToeClient.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/sockets/ToeServer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/sockets/UrlGet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/sockets/UrlPost.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/streams/AllPerfectStream.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/streams/CandidateNumber.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/streams/CountStream.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/streams/Divisors.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/streams/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/streams/OrderedStream.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/streams/Perfect.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/streams/PerfectStream.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/streams/StreamCollector.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/streams/StreamReduce.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/streams/StringCollector.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/streams/StringReduce.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/streams/Summarizer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/sync/BowLoop.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/sync/Buffer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/sync/CharSource.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/sync/Consumer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/sync/Incrementer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/sync/Job.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/sync/LockedBuffer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/sync/LockedFriend.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/sync/LockedFriends.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/sync/LockedPrinter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/sync/MultiPrinterQueue.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/sync/Named.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/sync/NamedWaiter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/sync/PrintQueue.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/sync/Producer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/sync/RunCounter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/sync/SemaphorePrinter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/sync/SimpleCounter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/sync/SimpleFriends.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/sync/SyncCounter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/sync/UnsyncCounter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/sync/Waiter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/threads/AllFutures.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/threads/AnyFutures.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/threads/FactorialBuilder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/threads/FixedThreadPool.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/threads/ManyThreads.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/threads/RethrowingThread.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/threads/ScheduledFutures.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/threads/SingleThread.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/threads/SingleThreadPool.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/threads/ThreadInterrupter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/threads/ThreadObserver.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/threads/ThreadSupplier.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pcd2018/lab1/DecoderTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pcd2018/lab1/GameRecordToDataTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pcd2018/lab1/ScoreReaderTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pcd2018/lab1/SummarizerTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pcd2018/lab1/bowling/FileTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pcd2018/lab1/bowling/FinalFrameTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pcd2018/lab1/bowling/IntListVal.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pcd2018/lab1/bowling/NormalPlay.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pcd2018/lab1/bowling/ShortSpares.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pcd2018/lab1/bowling/ShortStrikes.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pcd2018/lab1/bowling/SimplePins.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pcd2018/lab1/bowling/StringVal.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pcd2018/lab1/bowling/Textual.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pcd2018/lab1/solution/GameRecordToDataTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pcd2018/lab1/solution/ScoreReaderTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pcd2018/lab1/solution/SummarizerTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pcd2018/lab2/BowlingServerTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pcd2018/lab2/bowling/BowlingScorerSingleTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pcd2018/lab2/bowling/BowlingScorerTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pcd2018/lab2/bowling/IntListResult.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pcd2018/safe/AdderTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pcd2018/safe/AtomicAdderTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pcd2018/safe/ListTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pcd2018/safe/ThreadTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pcd2018/safe/VolatileTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pcd2018/sockets/GameResultTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pcd2018/sockets/GameTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pcd2018/streams/DivisorsTest.java" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -148,28 +17,40 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/pcd2018/exe2/DiffieHellman.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="112">
-              <caret line="162" lean-forward="true" selection-start-line="162" selection-end-line="162" />
+            <state relative-caret-position="-1979">
+              <caret line="128" lean-forward="true" selection-start-line="128" selection-end-line="128" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1365#1366#0" expanded="true" />
-                <element signature="e#1395#1396#0" expanded="true" />
-                <element signature="e#1439#1440#0" expanded="true" />
-                <element signature="e#1469#1470#0" expanded="true" />
-                <element signature="e#1503#1504#0" expanded="true" />
-                <element signature="e#1534#1535#0" expanded="true" />
-                <element signature="e#1568#1569#0" expanded="true" />
-                <element signature="e#1599#1600#0" expanded="true" />
-                <element signature="e#1698#1699#0" expanded="true" />
-                <element signature="e#1729#1730#0" expanded="true" />
-                <element signature="e#2201#2202#0" expanded="true" />
-                <element signature="e#2237#2238#0" expanded="true" />
+                <element signature="e#1777#1778#0" expanded="true" />
+                <element signature="e#1807#1808#0" expanded="true" />
+                <element signature="e#1847#1848#0" expanded="true" />
+                <element signature="e#1877#1878#0" expanded="true" />
+                <element signature="e#1911#1912#0" expanded="true" />
+                <element signature="e#1942#1943#0" expanded="true" />
+                <element signature="e#1976#1977#0" expanded="true" />
+                <element signature="e#2007#2008#0" expanded="true" />
+                <element signature="e#2041#2042#0" expanded="true" />
+                <element signature="e#2072#2073#0" expanded="true" />
+                <element signature="e#2107#2108#0" expanded="true" />
+                <element signature="e#2139#2140#0" expanded="true" />
+                <element signature="e#4674#4675#0" expanded="true" />
                 <element signature="e#4708#4709#0" expanded="true" />
+                <element signature="e#4750#4751#0" expanded="true" />
                 <element signature="e#4784#4785#0" expanded="true" />
+                <element signature="e#4815#4816#0" expanded="true" />
                 <element signature="e#4845#4846#0" expanded="true" />
+                <element signature="e#4875#4876#0" expanded="true" />
                 <element signature="e#4904#4905#0" expanded="true" />
-                <element signature="e#744#753#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/pcd2018/exe2/DiffieHellmanUtilsTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="816">
+              <caret line="55" column="28" lean-forward="true" selection-start-line="55" selection-start-column="28" selection-end-line="55" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -177,7 +58,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="jar://C:/Program Files/Java/jdk-11.0.1/lib/src.zip!/java.base/java/util/concurrent/FutureTask.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
+            <state relative-caret-position="2567">
               <caret line="190" selection-start-line="190" selection-end-line="190" />
             </state>
           </provider>
@@ -186,7 +67,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/pcd2018/exe2/DiffieHellmanTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
+            <state relative-caret-position="306">
               <caret line="24" selection-start-line="24" selection-end-line="24" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -233,7 +114,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-7" />
     <option name="width" value="974" />
     <option name="height" value="1047" />
@@ -244,23 +125,30 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="pcd1819-mod2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="pcd1819-exe2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="pcd1819-mod2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="pcd1819-exe2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pcd1819-exe2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="exe2" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -325,19 +213,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ThreadObserver" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="pcd2018.threads.ThreadObserver" />
-      <module name="main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="pcd2018.threads.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="DiffieHellmanTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="test" />
       <extension name="coverage">
@@ -352,13 +227,27 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="DiffieHellmanUtilsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="pcd2018.exe2.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="pcd2018.exe2" />
+      <option name="MAIN_CLASS_NAME" value="pcd2018.exe2.DiffieHellmanUtilsTest" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.DiffieHellmanTest" />
+        <item itemvalue="JUnit.DiffieHellmanUtilsTest" />
         <item itemvalue="Application.DiffieHellman" />
         <item itemvalue="Application.RethrowingThread" />
         <item itemvalue="Application.ThreadInterrupter" />
-        <item itemvalue="Application.ThreadObserver" />
       </list>
     </recent_temporary>
   </component>
@@ -376,18 +265,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="DiffieHellmanTest - 2018.12.29 at 20h 02m 20s.xml">
-      <configuration name="DiffieHellmanTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="DiffieHellmanTest - 2018.12.29 at 20h 16m 08s.xml">
-      <configuration name="DiffieHellmanTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="DiffieHellmanTest - 2018.12.29 at 20h 17m 07s.xml">
-      <configuration name="DiffieHellmanTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="DiffieHellmanTest - 2018.12.29 at 20h 21m 06s.xml">
-      <configuration name="DiffieHellmanTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="DiffieHellmanTest - 2018.12.29 at 20h 24m 41s.xml">
       <configuration name="DiffieHellmanTest" configurationId="JUnit" />
     </history-entry>
@@ -406,25 +283,38 @@
     <history-entry file="DiffieHellmanTest - 2018.12.29 at 20h 37m 26s.xml">
       <configuration name="DiffieHellmanTest" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="DiffieHellmanTest - 2018.12.30 at 17h 02m 04s.xml">
+      <configuration name="DiffieHellmanTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="DiffieHellmanTest - 2018.12.30 at 17h 02m 27s.xml">
+      <configuration name="DiffieHellmanTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="DiffieHellmanUtilsTest - 2018.12.30 at 17h 02m 33s.xml">
+      <configuration name="DiffieHellmanUtilsTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="DiffieHellmanTest - 2018.12.30 at 17h 02m 55s.xml">
+      <configuration name="DiffieHellmanTest" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25799572" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26066098" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
       <window_info id="Favorites" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.4989339" weight="0.32936078" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.71961623" visible="true" weight="0.32936078" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.71908313" visible="true" weight="0.32936078" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Terminal" order="8" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.2803838" side_tool="true" visible="true" weight="0.32936078" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.28091684" side_tool="true" visible="true" weight="0.32936078" />
       <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.4989339" weight="0.32936078" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="1" weight="0.25" />
@@ -439,48 +329,12 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/pcd2018/lab2/bowling/BowlingScorer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1581">
-          <caret line="107" column="24" selection-start-line="107" selection-start-column="24" selection-end-line="107" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pcd2018/threads/AllFutures.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pcd2018/lab1/solution/ScoreReader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pcd2018/lab1/bowling/BowlingGame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="75" column="13" selection-start-line="75" selection-start-column="13" selection-end-line="75" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pcd2018/threads/ThreadObserver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="34" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pcd2018/threads/RethrowingThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="8" column="6" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pcd2018/lab2/bowling/BowlingScorer.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/pcd2018/threads/AllFutures.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/pcd2018/lab1/solution/ScoreReader.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/pcd2018/lab1/bowling/BowlingGame.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/pcd2018/threads/ThreadObserver.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/pcd2018/threads/RethrowingThread.java" />
     <entry file="file://$PROJECT_DIR$/src/test/test.iml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -491,54 +345,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pcd2018/threads/SingleThreadPool.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="16" column="38" selection-start-line="16" selection-start-column="38" selection-end-line="16" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pcd2018/exe2/DHThreadCallable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pcd2018/threads/ThreadSupplier.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pcd2018/exe2/Main.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pcd2018/threads/SingleThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/pcd2018/lab1/bowling/NormalPlay.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="10">
-          <caret line="7" column="27" lean-forward="true" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/pcd2018/exe2/DiffieHellmanUtilsTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-41">
-          <caret line="45" column="43" selection-start-line="45" selection-start-column="43" selection-end-line="45" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pcd2018/threads/SingleThreadPool.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/pcd2018/exe2/DHThreadCallable.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/pcd2018/threads/ThreadSupplier.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/pcd2018/exe2/Main.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/pcd2018/threads/SingleThread.java" />
+    <entry file="file://$PROJECT_DIR$/src/test/java/pcd2018/lab1/bowling/NormalPlay.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/pcd2018/exe2/DiffieHellmanUtils.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
@@ -549,13 +361,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pcd2018/exe2/DHThreadSupplier1.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-228">
-          <caret line="1" column="13" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pcd2018/exe2/DHThreadSupplier1.java" />
     <entry file="jar://C:/Program Files/Java/jdk-11.0.1/lib/src.zip!/java.base/java/util/function/Consumer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="147">
@@ -563,68 +369,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pcd2018/streams/AllPerfectStream.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/pcd2018/streams/AllPerfectStream.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/pcd2018/streams/StreamCollector.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/pcd2018/streams/StreamReduce.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/pcd2018/streams/StringCollector.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/pcd2018/streams/StringReduce.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/pcd2018/streams/Summarizer.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/pcd2018/streams/OrderedStream.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/pcd2018/streams/Main.java" />
+    <entry file="jar://C:/Program Files/Java/jdk-11.0.1/lib/src.zip!/java.base/java/util/concurrent/FutureTask.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pcd2018/streams/StreamCollector.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pcd2018/streams/StreamReduce.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pcd2018/streams/StringCollector.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pcd2018/streams/StringReduce.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pcd2018/streams/Summarizer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pcd2018/streams/OrderedStream.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="19" lean-forward="true" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pcd2018/streams/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="2567">
+          <caret line="190" selection-start-line="190" selection-end-line="190" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/pcd2018/exe2/DiffieHellmanTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
+        <state relative-caret-position="306">
           <caret line="24" selection-start-line="24" selection-end-line="24" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -632,36 +394,39 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-11.0.1/lib/src.zip!/java.base/java/util/concurrent/FutureTask.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/pcd2018/exe2/DiffieHellmanUtilsTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="190" selection-start-line="190" selection-end-line="190" />
+        <state relative-caret-position="816">
+          <caret line="55" column="28" lean-forward="true" selection-start-line="55" selection-start-column="28" selection-end-line="55" selection-end-column="28" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/pcd2018/exe2/DiffieHellman.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="162" lean-forward="true" selection-start-line="162" selection-end-line="162" />
+        <state relative-caret-position="-1979">
+          <caret line="128" lean-forward="true" selection-start-line="128" selection-end-line="128" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1365#1366#0" expanded="true" />
-            <element signature="e#1395#1396#0" expanded="true" />
-            <element signature="e#1439#1440#0" expanded="true" />
-            <element signature="e#1469#1470#0" expanded="true" />
-            <element signature="e#1503#1504#0" expanded="true" />
-            <element signature="e#1534#1535#0" expanded="true" />
-            <element signature="e#1568#1569#0" expanded="true" />
-            <element signature="e#1599#1600#0" expanded="true" />
-            <element signature="e#1698#1699#0" expanded="true" />
-            <element signature="e#1729#1730#0" expanded="true" />
-            <element signature="e#2201#2202#0" expanded="true" />
-            <element signature="e#2237#2238#0" expanded="true" />
+            <element signature="e#1777#1778#0" expanded="true" />
+            <element signature="e#1807#1808#0" expanded="true" />
+            <element signature="e#1847#1848#0" expanded="true" />
+            <element signature="e#1877#1878#0" expanded="true" />
+            <element signature="e#1911#1912#0" expanded="true" />
+            <element signature="e#1942#1943#0" expanded="true" />
+            <element signature="e#1976#1977#0" expanded="true" />
+            <element signature="e#2007#2008#0" expanded="true" />
+            <element signature="e#2041#2042#0" expanded="true" />
+            <element signature="e#2072#2073#0" expanded="true" />
+            <element signature="e#2107#2108#0" expanded="true" />
+            <element signature="e#2139#2140#0" expanded="true" />
+            <element signature="e#4674#4675#0" expanded="true" />
             <element signature="e#4708#4709#0" expanded="true" />
+            <element signature="e#4750#4751#0" expanded="true" />
             <element signature="e#4784#4785#0" expanded="true" />
+            <element signature="e#4815#4816#0" expanded="true" />
             <element signature="e#4845#4846#0" expanded="true" />
+            <element signature="e#4875#4876#0" expanded="true" />
             <element signature="e#4904#4905#0" expanded="true" />
-            <element signature="e#744#753#0" expanded="true" />
           </folding>
         </state>
       </provider>

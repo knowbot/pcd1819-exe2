@@ -112,8 +112,8 @@ public class DiffieHellman {
         if (stopValue < upperBound) // if stopValue is less than the upper bound
           currentStep++; // currentStep is incremented, new range of values will be used next time
         else
-          stopValue = upperBound; // currentStep not incremented and stopValue replaced by upperBound
-
+          stopValue = upperBound; // currentStep not incremented (no next step) and stopValue replaced by upperBound
+        // this seemingly overcomplicated ordeal is in place to avoid IndexOutOfBounds errors
       } else { //if threadStep is a negative value
         //compute range of values
         startValue = upperBound + (threadStep * (currentStep + 1));
@@ -161,24 +161,30 @@ public class DiffieHellman {
         return stop;
       }
 
+      /**
+       * @return a List<Integer> containing all the a,b couples (a values on even indexes, b values on odd indexes) that
+       * fulfill the condition 's'; the couples' order is sorted by the value of a (ascending).
+       */
       @Override
       public List<Integer> call() {
-        System.out.println("Starting thread #"+Thread.currentThread().getId()+ " with value interval for 'a' -> [" + this.start + ", " + this.stop + "].");
+        System.out.println("Starting thread #" + Thread.currentThread().getId() + " with value interval for 'a' -> [" + this.start + ", " + this.stop + "].");
 
         List<Integer> taskRes = new ArrayList<>(); // list where we'll store the task's results
 
         computedA.subList(start, stop) // cut the sublist we want to examine in the task
                 .forEach(aVal -> { // for each value in the sublist
                   /*
-                    if there is an identical value in computedB (a and b produce the same s value)
+                    if there is an identical value in computedB (a and b produce the same s value), indB equals the
+                    b value; else, it's -1 (indexOf returns -1 if its argument is not in the list).
                   */
-                  if (computedB.contains(aVal)) {
+                  int indB = computedB.indexOf(aVal);
+                  if (indB != -1) {
                     taskRes.add(computedA.indexOf(aVal)); // add the index of the computed s for a, which is a's value
-                    taskRes.add(computedB.indexOf(aVal)); // do the same for b
+                    taskRes.add(indB); // same for b
                   }
                 });
 
-        System.out.println("Ending thread #"+Thread.currentThread().getId()+ ".");
+        System.out.println("Ending thread #" + Thread.currentThread().getId() + ".");
         return taskRes;
       }
     }
@@ -220,12 +226,12 @@ public class DiffieHellman {
     int availCPUs = Runtime.getRuntime().availableProcessors();
     int step = Math.round(LIMIT / availCPUs);
     /*
-      Create an executor to invoke the tasks
+      Just like the example during class
     */
     ThreadPoolExecutor executor =
             (ThreadPoolExecutor) Executors.newFixedThreadPool(availCPUs);
     /*
-      Create an supplier for the tasks we want to run
+      Create a supplier for the tasks we want to run
     */
     DHSupplier dhSupplier = new DHSupplier(aList, bList, 0, LIMIT, step);
     /*
@@ -253,15 +259,15 @@ public class DiffieHellman {
       Collect the tasks' results into a single variable
     */
     System.out.println("Collecting results from computations, please stand by...");
-    for (Future<List<Integer>> future:futures) {
+    for (Future<List<Integer>> future : futures) {
       try {
         res.addAll(future.get());
-      } catch (ExecutionException|InterruptedException e) {
+      } catch (ExecutionException | InterruptedException e) {
         e.printStackTrace();
       }
     }
 
-    System.out.println("Done collecting results from computations. Total number of matches found: " + res.size()/2);
+    System.out.println("Done collecting results from computations. Total number of couples found: " + res.size() / 2);
     return res;
   }
 }
