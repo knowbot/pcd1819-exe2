@@ -177,10 +177,9 @@ public class DiffieHellman {
                     if there is an identical value in computedB (a and b produce the same s value), indB equals the
                     b value; else, it's -1 (indexOf returns -1 if its argument is not in the list).
                   */
-                  int indB = computedB.indexOf(aVal);
-                  if (indB != -1) {
+                  if (computedB.contains(aVal)) {
                     taskRes.add(computedA.indexOf(aVal)); // add the index of the computed s for a, which is a's value
-                    taskRes.add(indB); // same for b
+                    taskRes.add(computedB.indexOf(aVal)); // same for b
                   }
                 });
 
