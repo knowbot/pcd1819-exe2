@@ -171,16 +171,28 @@ public class DiffieHellman {
 
         List<Integer> taskRes = new ArrayList<>(); // list where we'll store the task's results
 
-        computedA.subList(start, stop) // cut the sublist we want to examine in the task
+        computedA.subList(start, stop)// cut the sublist we want to examine in the task
                 .forEach(aVal -> { // for each value in the sublist
+                  /*
+                   * Two variants of the same operation, I believe the second one should be slightly faster since it
+                   * removes O(n) operations (doesn't need to execute the contains() method!).
+                   **/
+                  // VARIANT 1
                   /*
                     if there is an identical value in computedB (a and b produce the same s value), indB equals the
                     b value; else, it's -1 (indexOf returns -1 if its argument is not in the list).
-                  */
+
                   if (computedB.contains(aVal)) {
                     taskRes.add(computedA.indexOf(aVal)); // add the index of the computed s for a, which is a's value
                     taskRes.add(computedB.indexOf(aVal)); // same for b
+                  }*/
+                  // VARIANT 2
+                  int indB = computedB.indexOf(aVal); // finds the index of the first matching element
+                  if (indB != -1) { // if it didn't find any, returns -1 and skips this part
+                    taskRes.add(computedA.indexOf(aVal)); // otherwise, add the a value we were checking
+                    taskRes.add(indB); // and add b
                   }
+
                 });
 
         System.out.println("Ending thread #" + Thread.currentThread().getId() + ".");
@@ -202,7 +214,9 @@ public class DiffieHellman {
     List<Long> aList, bList;
 
     /*
-      Compute (pubB^a) mod p for all possible values of a
+      Compute (pubB^a)mod(p) for all possible values of 'a'
+      ATTENTION: for better understanding of the code, please note that by doing this the index of any value in the list
+      actually corresponds to the 'a' value that was used to compute it! Same goes for the next list, but with 'b'
     */
     aList = IntStream
             .rangeClosed(0, LIMIT) // generate all possible values of a
