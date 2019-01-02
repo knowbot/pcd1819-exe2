@@ -1,7 +1,6 @@
 package pcd2018.exe2;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 import java.util.concurrent.*;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
@@ -29,24 +28,22 @@ public class DiffieHellman {
    */
   public class DHSupplier implements Supplier<Callable<List<Integer>>> {
 
-    private List<Long> computedA; // list of 's' valued computed for each 'a'
-    private List<Long> computedB; // list of 's' values computed for each 'b'
+    private final List<Long> computedA; // list of 's' valued computed for each 'a'
+    private final List<Long> computedB; // list of 's' values computed for each 'b'
 
-    private int lowerBound; // lower bound of value interval to be checked
-    private int upperBound; // upper bound of value interval to be checked
+    private final int lowerBound; // lower bound of value interval to be checked
+    private final int upperBound; // upper bound of value interval to be checked
+    private final int threadStep; // range of values to be evaluated in a single thread, it's equal among all threads
 
     private int currentStep; // keeps track of how many steps have been taken
-
-    private final int threadStep; // range of values to be evaluated in a single thread, it's equal among all threads
 
     private DHSupplier(List<Long> computedA, List<Long> computedB, int lowerBound, int upperBound, int threadStep) {
       this.computedA = computedA;
       this.computedB = computedB;
       this.lowerBound = lowerBound;
       this.upperBound = upperBound;
-      this.currentStep = 0;
       this.threadStep = threadStep;
-
+      this.currentStep = 0;
       try {
         validate();
       } catch (IllegalArgumentException e) {
@@ -170,29 +167,24 @@ public class DiffieHellman {
         System.out.println("Starting thread #" + Thread.currentThread().getId() + " with value interval for 'a' -> [" + this.start + ", " + this.stop + "].");
 
         List<Integer> taskRes = new ArrayList<>(); // list where we'll store the task's results
-
-        computedA.subList(start, stop)// cut the sublist we want to examine in the task
+        int[] indA = {start}; // starting a value to be examined, can be incremented in each lambda
+        /*
+          The following code might seem overcomplicated as nested loops would have sufficed,
+          but it has marginally better avg performance (~1.5sec, 14s vs. 15.5s / 9.7% improvement) when executed
+          on my machine (i7-7700HQ @ 2.8 GHz).
+         */
+        // find all matches for the current computedA's 's' value in computedB
+        computedA.subList(start, stop) // cut the sublist we want to examine in the task
                 .forEach(aVal -> { // for each value in the sublist
-                  /*
-                   * Two variants of the same operation, I believe the second one should be slightly faster since it
-                   * removes O(n) operations (doesn't need to execute the contains() method!).
-                   **/
-                  // VARIANT 1
-                  /*
-                    if there is an identical value in computedB (a and b produce the same s value), indB equals the
-                    b value; else, it's -1 (indexOf returns -1 if its argument is not in the list).
-
-                  if (computedB.contains(aVal)) {
-                    taskRes.add(computedA.indexOf(aVal)); // add the index of the computed s for a, which is a's value
-                    taskRes.add(computedB.indexOf(aVal)); // same for b
-                  }*/
-                  // VARIANT 2
-                  int indB = computedB.indexOf(aVal); // finds the index of the first matching element
-                  if (indB != -1) { // if it didn't find any, returns -1 and skips this part
-                    taskRes.add(computedA.indexOf(aVal)); // otherwise, add the a value we were checking
-                    taskRes.add(indB); // and add b
+                  List<Long> tempB = new ArrayList<>(computedB); //temporary clone, to be used in the lambda
+                  int indB = tempB.indexOf(aVal); // get the index of the first matching 's' value
+                  while(indB != -1) { // while there is a match in tempB
+                    taskRes.add(indA[0]); // add a's value
+                    taskRes.add(indB); // add b's value
+                    tempB = tempB.subList(indB+1, computedB.size()); // check the remainder of the list
+                    indB = tempB.indexOf(aVal); // try to find a new match and (if present) store b's value
                   }
-
+                  indA[0]++; // check the next a
                 });
 
         System.out.println("Ending thread #" + Thread.currentThread().getId() + ".");
@@ -237,9 +229,10 @@ public class DiffieHellman {
       available processors, since we want to instantiate one thread per processor unit
     */
     int availCPUs = Runtime.getRuntime().availableProcessors();
+
     int step = Math.round(LIMIT / availCPUs);
     /*
-      Just like the example during class
+      Just like the example during class, create an executor
     */
     ThreadPoolExecutor executor =
             (ThreadPoolExecutor) Executors.newFixedThreadPool(availCPUs);
@@ -279,8 +272,8 @@ public class DiffieHellman {
         e.printStackTrace();
       }
     }
-
     System.out.println("Done collecting results from computations. Total number of couples found: " + res.size() / 2);
     return res;
   }
 }
+

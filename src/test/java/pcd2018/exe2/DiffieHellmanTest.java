@@ -17,9 +17,9 @@ public class DiffieHellmanTest {
 
   @Test
   @Tag("Exercise-2")
-  public void exer2() {
-    long p = 128504093;
-    long g = 10009;
+  public void exer2a() {
+      long p = 128504093;
+      long g = 10009;
     long publicA = 69148740;
     long publicB = 67540095;
     List<Integer> test = List.ofAll(new DiffieHellman(p, g).crack(publicA, publicB));
@@ -30,5 +30,6 @@ public class DiffieHellmanTest {
       assertEquals(DiffieHellmanUtils.modPow(publicB, secretA, p), DiffieHellmanUtils.modPow(publicA, secretB, p));
     });
   }
+
 
 }

@@ -2,7 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0844fc44-4634-42ac-bbaa-69d850376fc8" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/main/pcd2018/exe2/DiffieHellman$DHSupplier$DHCallableTask.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/main/pcd2018/exe2/DiffieHellman$DHSupplier$DHCallableTask.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/main/pcd2018/exe2/DiffieHellman$DHSupplier.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/main/pcd2018/exe2/DiffieHellman$DHSupplier.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/main/pcd2018/exe2/DiffieHellman.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/main/pcd2018/exe2/DiffieHellman.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/exe2/DiffieHellman.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pcd2018/exe2/DiffieHellman.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pcd2018/exe2/DiffieHellmanUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pcd2018/exe2/DiffieHellmanUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pcd2018/exe2/DiffieHellmanTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pcd2018/exe2/DiffieHellmanTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -16,30 +22,43 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/pcd2018/exe2/DiffieHellman.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="180" column="20" lean-forward="true" selection-start-line="180" selection-start-column="20" selection-end-line="180" selection-end-column="20" />
+            <state relative-caret-position="-1148">
+              <caret line="166" column="46" selection-start-line="166" selection-start-column="46" selection-end-line="166" selection-end-column="46" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1777#1778#0" expanded="true" />
-                <element signature="e#1807#1808#0" expanded="true" />
-                <element signature="e#1847#1848#0" expanded="true" />
-                <element signature="e#1877#1878#0" expanded="true" />
-                <element signature="e#1911#1912#0" expanded="true" />
-                <element signature="e#1942#1943#0" expanded="true" />
-                <element signature="e#1976#1977#0" expanded="true" />
-                <element signature="e#2007#2008#0" expanded="true" />
-                <element signature="e#2041#2042#0" expanded="true" />
-                <element signature="e#2072#2073#0" expanded="true" />
-                <element signature="e#2107#2108#0" expanded="true" />
-                <element signature="e#2139#2140#0" expanded="true" />
-                <element signature="e#4674#4675#0" expanded="true" />
-                <element signature="e#4708#4709#0" expanded="true" />
-                <element signature="e#4750#4751#0" expanded="true" />
-                <element signature="e#4784#4785#0" expanded="true" />
-                <element signature="e#4815#4816#0" expanded="true" />
-                <element signature="e#4845#4846#0" expanded="true" />
-                <element signature="e#4875#4876#0" expanded="true" />
-                <element signature="e#4904#4905#0" expanded="true" />
+                <element signature="e#1768#1769#0" expanded="true" />
+                <element signature="e#1798#1799#0" expanded="true" />
+                <element signature="e#1838#1839#0" expanded="true" />
+                <element signature="e#1868#1869#0" expanded="true" />
+                <element signature="e#1902#1903#0" expanded="true" />
+                <element signature="e#1933#1934#0" expanded="true" />
+                <element signature="e#1967#1968#0" expanded="true" />
+                <element signature="e#1998#1999#0" expanded="true" />
+                <element signature="e#2032#2033#0" expanded="true" />
+                <element signature="e#2063#2064#0" expanded="true" />
+                <element signature="e#2098#2099#0" expanded="true" />
+                <element signature="e#2130#2131#0" expanded="true" />
+                <element signature="e#4773#4774#0" expanded="true" />
+                <element signature="e#4807#4808#0" expanded="true" />
+                <element signature="e#4849#4850#0" expanded="true" />
+                <element signature="e#4883#4884#0" expanded="true" />
+                <element signature="e#4914#4915#0" expanded="true" />
+                <element signature="e#4944#4945#0" expanded="true" />
+                <element signature="e#4974#4975#0" expanded="true" />
+                <element signature="e#5003#5004#0" expanded="true" />
+                <element signature="e#7395#7404#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/pcd2018/exe2/DiffieHellmanUtils.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="384">
+              <caret line="96" column="18" selection-start-line="96" selection-start-column="18" selection-end-line="96" selection-end-column="18" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -48,11 +67,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/pcd2018/exe2/DiffieHellmanTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="24" selection-start-line="24" selection-end-line="24" />
+            <state relative-caret-position="401">
+              <caret line="31" column="3" selection-start-line="31" selection-start-column="3" selection-end-line="31" selection-end-column="3" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/pcd2018/exe2/DiffieHellmanUtilsTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="612">
+              <caret line="55" column="28" selection-start-line="55" selection-start-column="28" selection-end-line="55" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -85,12 +113,14 @@
       <list>
         <option value="$PROJECT_DIR$/src/main/java/pcd2018/lab1/solution/ScoreReader.java" />
         <option value="$PROJECT_DIR$/src/main/java/pcd2018/threads/SingleThread.java" />
-        <option value="$PROJECT_DIR$/src/test/java/pcd2018/exe2/DiffieHellmanTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/pcd2018/exe2/DHCallableThread.java" />
         <option value="$PROJECT_DIR$/src/main/java/pcd2018/exe2/DHThreadCallable.java" />
-        <option value="$PROJECT_DIR$/src/main/java/pcd2018/exe2/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/pcd2018/exe2/DHThreadSupplier.java" />
         <option value="$PROJECT_DIR$/src/main/java/pcd2018/exe2/DHThreadSupplier1.java" />
+        <option value="$PROJECT_DIR$/src/main/java/pcd2018/exe2/Main.java" />
+        <option value="$PROJECT_DIR$/src/main/java/pcd2018/exe2/DiffieHellmanUtils.java" />
+        <option value="$PROJECT_DIR$/src/main/java/pcd2018/exe2/DiffieHellman2.java" />
+        <option value="$PROJECT_DIR$/src/test/java/pcd2018/exe2/DiffieHellmanTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/pcd2018/exe2/DiffieHellman.java" />
       </list>
     </option>
@@ -110,6 +140,28 @@
       <pane id="ProjectPane">
         <subPane>
           <expand>
+            <path>
+              <item name="pcd1819-exe2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pcd1819-exe2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pcd1819-exe2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="exe2" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pcd1819-exe2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="exe2" type="462c0819:PsiDirectoryNode" />
+              <item name="DiffieHellmanUtils.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
+            </path>
             <path>
               <item name="pcd1819-exe2" type="b2602c69:ProjectViewProjectNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
@@ -141,6 +193,11 @@
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="pcd2018.exe2" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -246,55 +303,55 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="DiffieHellmanTest - 2018.12.30 at 17h 46m 52s.xml">
+    <history-entry file="DiffieHellmanTest - 2019.01.02 at 15h 17m 22s.xml">
       <configuration name="DiffieHellmanTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DiffieHellmanTest - 2018.12.30 at 17h 47m 28s.xml">
+    <history-entry file="DiffieHellmanTest - 2019.01.02 at 15h 19m 36s.xml">
       <configuration name="DiffieHellmanTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DiffieHellmanTest - 2018.12.30 at 17h 48m 58s.xml">
+    <history-entry file="DiffieHellmanTest - 2019.01.02 at 15h 26m 38s.xml">
       <configuration name="DiffieHellmanTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DiffieHellmanTest - 2018.12.30 at 17h 53m 45s.xml">
+    <history-entry file="DiffieHellmanTest - 2019.01.02 at 15h 27m 03s.xml">
       <configuration name="DiffieHellmanTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DiffieHellmanTest - 2018.12.30 at 17h 57m 41s.xml">
+    <history-entry file="DiffieHellmanTest - 2019.01.02 at 15h 30m 35s.xml">
       <configuration name="DiffieHellmanTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DiffieHellmanTest - 2018.12.30 at 17h 57m 58s.xml">
+    <history-entry file="DiffieHellmanTest - 2019.01.02 at 16h 06m 13s.xml">
       <configuration name="DiffieHellmanTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DiffieHellmanTest - 2018.12.30 at 17h 58m 14s.xml">
+    <history-entry file="DiffieHellmanTest - 2019.01.02 at 16h 06m 50s.xml">
       <configuration name="DiffieHellmanTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DiffieHellmanTest - 2018.12.30 at 17h 58m 29s.xml">
+    <history-entry file="DiffieHellmanTest - 2019.01.02 at 16h 07m 42s.xml">
       <configuration name="DiffieHellmanTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DiffieHellmanTest - 2018.12.30 at 17h 59m 52s.xml">
+    <history-entry file="DiffieHellmanTest - 2019.01.02 at 16h 08m 24s.xml">
       <configuration name="DiffieHellmanTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DiffieHellmanTest - 2018.12.30 at 18h 00m 29s.xml">
+    <history-entry file="DiffieHellmanTest - 2019.01.02 at 16h 10m 37s.xml">
       <configuration name="DiffieHellmanTest" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26066098" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26865673" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
       <window_info id="Favorites" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.4989339" weight="0.32936078" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.71908313" weight="0.32936078" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.7185501" weight="0.32936078" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Terminal" order="8" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.28091684" side_tool="true" visible="true" weight="0.32936078" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.28144988" side_tool="true" weight="0.32936078" />
       <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.4989339" weight="0.32936078" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="1" weight="0.25" />
@@ -328,19 +385,8 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/pcd2018/threads/SingleThreadPool.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/pcd2018/exe2/DHThreadCallable.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/pcd2018/threads/ThreadSupplier.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/pcd2018/exe2/Main.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/pcd2018/threads/SingleThread.java" />
     <entry file="file://$PROJECT_DIR$/src/test/java/pcd2018/lab1/bowling/NormalPlay.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/pcd2018/exe2/DiffieHellmanUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/pcd2018/exe2/DHThreadSupplier1.java" />
     <entry file="jar://C:/Program Files/Java/jdk-11.0.1/lib/src.zip!/java.base/java/util/function/Consumer.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -357,10 +403,18 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/pcd2018/streams/Summarizer.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/pcd2018/streams/OrderedStream.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/pcd2018/streams/Main.java" />
-    <entry file="file://$PROJECT_DIR$/src/test/java/pcd2018/exe2/DiffieHellmanTest.java">
+    <entry file="jar://C:/Program Files/Java/jdk-11.0.1/lib/src.zip!/java.base/java/util/concurrent/FutureTask.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="24" selection-start-line="24" selection-end-line="24" />
+        <state relative-caret-position="190">
+          <caret line="190" selection-start-line="190" selection-end-line="190" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pcd2018/exe2/Main.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/pcd2018/exe2/DiffieHellmanUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="96" column="18" selection-start-line="96" selection-start-column="18" selection-end-line="96" selection-end-column="18" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -369,44 +423,55 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/pcd2018/exe2/DiffieHellmanUtilsTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="816">
-          <caret line="55" column="28" lean-forward="true" selection-start-line="55" selection-start-column="28" selection-end-line="55" selection-end-column="28" />
+        <state relative-caret-position="612">
+          <caret line="55" column="28" selection-start-line="55" selection-start-column="28" selection-end-line="55" selection-end-column="28" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-11.0.1/lib/src.zip!/java.base/java/util/concurrent/FutureTask.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/pcd2018/exe2/DiffieHellman2.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="190" selection-start-line="190" selection-end-line="190" />
+        <state relative-caret-position="561">
+          <caret line="192" column="36" selection-start-line="192" selection-start-column="36" selection-end-line="192" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/pcd2018/exe2/DiffieHellmanTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="401">
+          <caret line="31" column="3" selection-start-line="31" selection-start-column="3" selection-end-line="31" selection-end-column="3" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/pcd2018/exe2/DiffieHellman.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="180" column="20" lean-forward="true" selection-start-line="180" selection-start-column="20" selection-end-line="180" selection-end-column="20" />
+        <state relative-caret-position="-1148">
+          <caret line="166" column="46" selection-start-line="166" selection-start-column="46" selection-end-line="166" selection-end-column="46" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1777#1778#0" expanded="true" />
-            <element signature="e#1807#1808#0" expanded="true" />
-            <element signature="e#1847#1848#0" expanded="true" />
-            <element signature="e#1877#1878#0" expanded="true" />
-            <element signature="e#1911#1912#0" expanded="true" />
-            <element signature="e#1942#1943#0" expanded="true" />
-            <element signature="e#1976#1977#0" expanded="true" />
-            <element signature="e#2007#2008#0" expanded="true" />
-            <element signature="e#2041#2042#0" expanded="true" />
-            <element signature="e#2072#2073#0" expanded="true" />
-            <element signature="e#2107#2108#0" expanded="true" />
-            <element signature="e#2139#2140#0" expanded="true" />
-            <element signature="e#4674#4675#0" expanded="true" />
-            <element signature="e#4708#4709#0" expanded="true" />
-            <element signature="e#4750#4751#0" expanded="true" />
-            <element signature="e#4784#4785#0" expanded="true" />
-            <element signature="e#4815#4816#0" expanded="true" />
-            <element signature="e#4845#4846#0" expanded="true" />
-            <element signature="e#4875#4876#0" expanded="true" />
-            <element signature="e#4904#4905#0" expanded="true" />
+            <element signature="e#1768#1769#0" expanded="true" />
+            <element signature="e#1798#1799#0" expanded="true" />
+            <element signature="e#1838#1839#0" expanded="true" />
+            <element signature="e#1868#1869#0" expanded="true" />
+            <element signature="e#1902#1903#0" expanded="true" />
+            <element signature="e#1933#1934#0" expanded="true" />
+            <element signature="e#1967#1968#0" expanded="true" />
+            <element signature="e#1998#1999#0" expanded="true" />
+            <element signature="e#2032#2033#0" expanded="true" />
+            <element signature="e#2063#2064#0" expanded="true" />
+            <element signature="e#2098#2099#0" expanded="true" />
+            <element signature="e#2130#2131#0" expanded="true" />
+            <element signature="e#4773#4774#0" expanded="true" />
+            <element signature="e#4807#4808#0" expanded="true" />
+            <element signature="e#4849#4850#0" expanded="true" />
+            <element signature="e#4883#4884#0" expanded="true" />
+            <element signature="e#4914#4915#0" expanded="true" />
+            <element signature="e#4944#4945#0" expanded="true" />
+            <element signature="e#4974#4975#0" expanded="true" />
+            <element signature="e#5003#5004#0" expanded="true" />
+            <element signature="e#7395#7404#0" expanded="true" />
           </folding>
         </state>
       </provider>

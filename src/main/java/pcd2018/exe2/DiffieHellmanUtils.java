@@ -94,7 +94,7 @@ public class DiffieHellmanUtils {
 
   static long modPow(long base, long pow, long mod) {
     long res = base;
-    for (int i = 0; i < pow; i++)
+    for (int i = 1; i < pow; i++)
       res = (res * base) % mod;
     return res;
   }
