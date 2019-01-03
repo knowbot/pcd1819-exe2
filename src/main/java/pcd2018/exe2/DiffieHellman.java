@@ -24,6 +24,81 @@ public class DiffieHellman {
   }
 
   /**
+   * Custom class implementing the Callable interface, used to create tasks that try to crack values in a certain range
+   */
+  public class DHCallableTask implements Callable<List<Integer>> {
+
+    private List<Long> computedA; // list of 's' valued computed for each 'a'
+    private List<Long> computedB; // list of 's' values computed for each 'b'
+
+    private int start;  // starting value
+    private int stop; // ending value
+
+
+    /**
+     * @param AList list of 's' values computed with a
+     * @param BList list of 's' values computed with b
+     * @param start starting 'a' value
+     * @param stop ending 'a' value
+     */
+    DHCallableTask(List<Long> AList, List<Long> BList, int start, int stop) {
+      this.computedA = AList;
+      this.computedB = BList;
+      this.start = start;
+      this.stop = stop;
+    }
+
+    public List<Long> getComputedA() {
+      return computedA;
+    }
+
+    public List<Long> getComputedB() {
+      return computedB;
+    }
+
+    public int getStart() {
+      return start;
+    }
+
+    public int getStop() {
+      return stop;
+    }
+
+    /**
+     * @return a List<Integer> containing all the a,b couples (a values on even indexes, b values on odd indexes) that
+     * fulfill the condition 's'; the couples' order is sorted by the value of a (ascending).
+     */
+    @Override
+    public List<Integer> call() {
+      System.out.println("Starting thread #" + Thread.currentThread().getId() + " with value interval for 'a' -> [" + this.start + ", " + this.stop + "].");
+
+      List<Integer> taskRes = new ArrayList<>(); // list where we'll store the task's results
+      int[] indA = {start}; // starting a value to be examined, can be incremented in each lambda
+        /*
+          The following code might seem overcomplicated as nested loops would have sufficed,
+          but it has marginally better avg performance (~1.5sec, 14s vs. 15.5s / 9.7% improvement) when executed
+          on my machine (i7-7700HQ @ 2.8 GHz).
+         */
+      // find all matches for the current computedA's 's' value in computedB
+      computedA.subList(start, stop) // cut the sublist we want to examine in the task
+              .forEach(aVal -> { // for each value in the sublist
+                List<Long> tempB = new ArrayList<>(computedB); //temporary clone, to be used in the lambda
+                int indB = tempB.indexOf(aVal); // get the index of the first matching 's' value
+                while(indB != -1) { // while there is a match in tempB
+                  taskRes.add(indA[0]); // add a's value
+                  taskRes.add(indB); // add b's value
+                  tempB = tempB.subList(indB+1, computedB.size()); // check the remainder of the list
+                  indB = tempB.indexOf(aVal); // try to find a new match and (if present) store b's value
+                }
+                indA[0]++; // check the next a
+              });
+
+      System.out.println("Ending thread #" + Thread.currentThread().getId() + ".");
+      return taskRes;
+    }
+  }
+
+  /**
    * Custom class implementing the Supplier interface
    */
   public class DHSupplier implements Supplier<Callable<List<Integer>>> {
@@ -37,6 +112,13 @@ public class DiffieHellman {
 
     private int currentStep; // keeps track of how many steps have been taken
 
+    /**
+     * @param computedA list of 's' valued computed for each 'a'
+     * @param computedB list of 's' values computed for each 'b'
+     * @param lowerBound lower bound of value interval to be checked
+     * @param upperBound upper bound of value interval to be checked
+     * @param threadStep range of values to be evaluated in a single thread, it's equal among all threads
+     */
     private DHSupplier(List<Long> computedA, List<Long> computedB, int lowerBound, int upperBound, int threadStep) {
       this.computedA = computedA;
       this.computedB = computedB;
@@ -124,73 +206,6 @@ public class DiffieHellman {
       return new DHCallableTask(computedA, computedB, startValue, stopValue);
     }
 
-    /**
-     * Custom class implementing the Callable interface
-     */
-    public class DHCallableTask implements Callable<List<Integer>> {
-
-      private List<Long> computedA; // list of 's' valued computed for each 'a'
-      private List<Long> computedB; // list of 's' values computed for each 'b'
-
-      private int start;  // starting value
-      private int stop; // stop of values to be checked
-
-      DHCallableTask(List<Long> AList, List<Long> BList, int start, int stop) {
-        this.computedA = AList;
-        this.computedB = BList;
-        this.start = start;
-        this.stop = stop;
-      }
-
-      public List<Long> getComputedA() {
-        return computedA;
-      }
-
-      public List<Long> getComputedB() {
-        return computedB;
-      }
-
-      public int getStart() {
-        return start;
-      }
-
-      public int getStop() {
-        return stop;
-      }
-
-      /**
-       * @return a List<Integer> containing all the a,b couples (a values on even indexes, b values on odd indexes) that
-       * fulfill the condition 's'; the couples' order is sorted by the value of a (ascending).
-       */
-      @Override
-      public List<Integer> call() {
-        System.out.println("Starting thread #" + Thread.currentThread().getId() + " with value interval for 'a' -> [" + this.start + ", " + this.stop + "].");
-
-        List<Integer> taskRes = new ArrayList<>(); // list where we'll store the task's results
-        int[] indA = {start}; // starting a value to be examined, can be incremented in each lambda
-        /*
-          The following code might seem overcomplicated as nested loops would have sufficed,
-          but it has marginally better avg performance (~1.5sec, 14s vs. 15.5s / 9.7% improvement) when executed
-          on my machine (i7-7700HQ @ 2.8 GHz).
-         */
-        // find all matches for the current computedA's 's' value in computedB
-        computedA.subList(start, stop) // cut the sublist we want to examine in the task
-                .forEach(aVal -> { // for each value in the sublist
-                  List<Long> tempB = new ArrayList<>(computedB); //temporary clone, to be used in the lambda
-                  int indB = tempB.indexOf(aVal); // get the index of the first matching 's' value
-                  while(indB != -1) { // while there is a match in tempB
-                    taskRes.add(indA[0]); // add a's value
-                    taskRes.add(indB); // add b's value
-                    tempB = tempB.subList(indB+1, computedB.size()); // check the remainder of the list
-                    indB = tempB.indexOf(aVal); // try to find a new match and (if present) store b's value
-                  }
-                  indA[0]++; // check the next a
-                });
-
-        System.out.println("Ending thread #" + Thread.currentThread().getId() + ".");
-        return taskRes;
-      }
-    }
   }
 
 
